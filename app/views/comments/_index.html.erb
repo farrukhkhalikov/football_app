@@ -1,0 +1,14 @@
+<% if comments.any? %>
+  <table class="table">
+    <tbody>
+      <% comments.each do |comment| %>
+        <tr>
+          <td><%= comment.body %></td>
+          <td><%= link_to "Delete", delete_comment_path(comment_id: comment.id), remote: true %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <label>No Comments Yet</label>
+<% end %>
