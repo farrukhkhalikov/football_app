@@ -41,22 +41,26 @@
           background-repeat: no-repeat;
           background-size: cover;
       }
+      .bg2 a{color: white;}
+
     </style>
     <%= javascript_pack_tag 'application' %>
   </head>
-  <body>
-      <% if user_signed_in? %>
-        <div class="container bg2">
 
-          <%= link_to "Log out", destroy_user_session_path %>
-          |
-          <%= link_to "Home", root_path %>
-          <%= yield %>
-        </div>
-      <% else %>
+  <% if user_signed_in? %>
+    <body class="">
+      <div class="container">
+
+        <%= link_to "Log out", destroy_user_session_path %>
+        |
+        <%= link_to "Home", root_path %>
         <%= yield %>
-      <% end %>
-      
-    
-  </body>
+      </div>
+    </body>
+  <% else %>
+    <body>
+      <%= yield %>
+    </body>
+  <% end %>
+
 </html>
