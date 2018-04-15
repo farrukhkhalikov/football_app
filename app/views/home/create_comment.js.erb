@@ -1,0 +1,7 @@
+<% if @comment.errors.any? %>
+  alert("Problem creating comment.")  
+<% else %>
+  document.getElementById("comment_form").reset()
+  document.getElementById("comments").innerHTML = "<%=j render 'comments/index',comments: @comments %>"
+  // $("#comments").html("<%=j render 'comments/index',comments: @comments %>")
+<% end %>

@@ -1,0 +1,28 @@
+| <%= link_to "Back", :back %>
+
+<h1>List of All Players</h1>
+
+<table class="table">
+  <thead>
+    <th>Name</th>
+    <th>Position</th>
+    <th>Jersey Number</th>
+    <th>Date Of Birth</th>
+    <th>Nationality</th>
+    <th>Contract Until</th>
+    <th>Market Value</th>
+  </thead>
+  <tbody>
+    <% @players.each do |player| %>
+      <tr>
+        <td><%= player["name"] %></td>
+        <td><%= player["position"] %></td>
+        <td><%= player["jerseyNumber"] %></td>
+        <td><%= player["dateOfBirth"] %></td>
+        <td><%= player["nationality"] %></td>
+        <td><%= player["contractUntil"] %></td>
+        <td><%= player["marketValue"] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>  

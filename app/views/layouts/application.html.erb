@@ -6,8 +6,44 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <style type="text/css">
+      body, html {
+        height: 100%;
+      }
+      .bg { 
+          /* The image used */
+          background-image: url("/assets/background.jpg");
+
+          /* Full height */
+          height: 100%; 
+
+          /* Center and scale the image nicely */
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+      }
+      .form-signin {
+        width: 100%;
+        max-width: 330px;
+        padding: 15px;
+        margin: auto;
+      }
+    </style>
   </head>
   <body>
-    <%= yield %>
+
+      <% if user_signed_in? %>
+        <div class="container">
+
+          <%= link_to "Log out", destroy_user_session_path %>
+          |
+          <%= link_to "Home", root_path %>
+          <%= yield %>
+        </div>
+      <% else %>
+        <%= yield %>
+      <% end %>
+      
+    
   </body>
 </html>

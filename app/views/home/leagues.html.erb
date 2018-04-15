@@ -1,0 +1,34 @@
+| <%= link_to "Back", :back %>
+
+<h1>League Detail</h1>
+<lable>League Caption : <%= @league_table["leagueCaption"]%></lable>
+</br>
+<lable>Matchday : <%= @league_table["matchday"]%></lable>
+<h4>Standings</h4>
+
+<table class="table">
+  <thead>
+    <th>Rank</th>
+    <th>Team Name</th>
+    <th>Played Games</th>
+    <th>Points</th>
+    <th>Goals</th>
+    <th>Goals Against</th>
+    <th>Goal Difference</th>
+    <th></th>
+  </thead>
+  <tbody>
+    <% @league_table["standing"].each do |standing| %>
+      <tr>
+        <td><%= standing["rank"] %></td>
+        <td><%= standing["team"] %></td>
+        <td><%= standing["playedGames"] %></td>
+        <td><%= standing["points"] %></td>
+        <td><%= standing["goals"] %></td>
+        <td><%= standing["goalsAgainst"] %></td>
+        <td><%= standing["goalDifference"] %></td>
+        <td><%= link_to "Show players", players_path(team_id: standing["teamId"]) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

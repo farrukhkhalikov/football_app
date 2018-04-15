@@ -1,0 +1,25 @@
+| <%= link_to "Back", :back %>
+
+<h1>List of All Teams</h1>
+
+<table class="table">
+  <thead>
+    <th>Name</th>
+    <th>Short Name</th>
+    <th>Stadium</th>
+    <th>Logo</th>
+    <th>Players</th>
+  </thead>
+  <tbody>
+    <% @teams.each_with_index do |team,index| %>
+      <tr>
+        <td><%= team["name"] %></td>
+        <td><%= team["shortName"] %></td>
+        <% stadium = @stadiums.sample %>
+        <td><%= link_to stadium.name, stadiums_path(stadium_id: stadium.id) %></td>
+        <td><img src="<%= team['crestUrl'] %>" style="height: 50px; width: 50px"> </td>
+        <td><%= link_to "Show Players", players_path(team_id: team["id"]) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>  
