@@ -15,10 +15,10 @@ The code for ReactJS is under <project_dir>/app/javascript
 I am using Ruby on Rails as backend framework
 I am using Rails version 5.1.4 and Ruby version 2.5.0
 I added following gems in it :
-Devise - for authentication
-Faraday - For API requests
-React-rails - integration of React in Rails
-Webpacker - javascript dependency management tool
+### Devise - for authentication
+### Faraday - For API requests
+### React-rails - integration of React in Rails
+### Webpacker - javascript dependency management tool
 
 I am using SQLite database in development and Postgresql in production.
 I have created a library to get data from foodball API which is under directory <project_dir>/lib/football_data.rb
