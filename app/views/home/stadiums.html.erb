@@ -1,7 +1,7 @@
 
 <div style="text-align: center;">
   <h4><%= @stadium.name %></h4>
-  <img src="/assets/<%= @stadium.image %>" style="height: 200px;">
+  <img src="<%= asset_path @stadium.image %>" style="height: 200px;">
 
   <h3>Weather Data</h3>
 
