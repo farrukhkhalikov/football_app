@@ -33,6 +33,13 @@ class HomeController < ApplicationController
     @comments = Comment.where(stadium_id: params[:stadium_id]).order("created_at DESC")
   end
 
+
+  def update_comment
+    @comment = Comment.find(params[:comment_id])
+    @comment.update_attributes(body: params[:body])
+    @comments = Comment.where(stadium_id: @comment.stadium_id).order("created_at DESC")
+  end
+
   def delete_comment
     @comment = Comment.find(params[:comment_id]).destroy
     @comments = Comment.where(stadium_id: @comment.stadium_id).order("created_at DESC")
