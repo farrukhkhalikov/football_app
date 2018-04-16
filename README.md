@@ -19,6 +19,8 @@ I added following gems in it :
 ### Faraday - For API requests
 ### React-rails - integration of React in Rails
 ### Webpacker - javascript dependency management tool
+# Link to Trello Board 
+https://trello.com/b/WKqInhvO/football-app
 
 I am using SQLite database in development and Postgresql in production.
 I have created a library to get data from foodball API which is under directory <project_dir>/lib/football_data.rb
