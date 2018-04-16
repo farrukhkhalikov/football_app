@@ -4,9 +4,9 @@ class Competition extends React.Component {
   render () {
     const row = this.props.competitions.map((data) =>
     <tr>
-      <td key={data.caption}>{data.caption}</td>
-      <td key={data.league}>{data.league}</td>
-      <td key={data.year}>{data.year}</td>
+      <td>{data.caption}</td>
+      <td>{data.league}</td>
+      <td>{data.year}</td>
       <td>
         <a href={"/teams?competition_id="+ data.id}>Show teams</a>
       </td>
@@ -16,13 +16,15 @@ class Competition extends React.Component {
     </tr>
     );
     return (
-    <table class="table">
+    <table className="table">
       <thead>
-        <th>Caption</th>
-        <th>League</th>
-        <th>Year</th>
-        <th></th>
-        <th></th>
+        <tr>
+          <th>Caption</th>
+          <th>League</th>
+          <th>Year</th>
+          <th></th>
+          <th></th>
+        </tr>
       </thead>
       <tbody>
         {row}
