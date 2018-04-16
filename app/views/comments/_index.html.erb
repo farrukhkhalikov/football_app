@@ -4,6 +4,17 @@
       <% comments.each do |comment| %>
         <tr>
           <td><%= comment.body %></td>
+          <td>
+            <%= link_to "Edit", "javascript:void(0)",onclick: "document.getElementById('comment_form_#{comment.id}').style = 'display:block;'" %>
+
+            <form id="comment_form_<%= comment.id %>" data-remote="true" action="<%= update_comment_path(comment_id: comment.id) %>" method="post" style="display:none;">
+              <input type="hidden" name="comment_id" value=<%= comment.id %> >
+              <textarea placeholder="Write a comment" name="body"><%= comment.body %></textarea>
+              </br>
+              <input type="submit" value="Update comment">
+            </form>            
+          </td>
+
           <td><%= link_to "Delete", delete_comment_path(comment_id: comment.id), remote: true %></td>
         </tr>
       <% end %>
