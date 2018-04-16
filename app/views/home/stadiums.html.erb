@@ -1,24 +1,8 @@
 
+
+
 <div style="text-align: center;">
-  <h4><%= @stadium.name %></h4>
-  <img src="<%= asset_path @stadium.image %>" style="height: 200px;">
-
-  <h3>Weather Data</h3>
-
-  <label>Current Weather</label>
-  </br>
-  <label>Temparture : <%= @weather_data["main"]["temp"] %>&#x2109;</label>
-  </br>
-  <label><%= @weather_data["weather"][0]["main"]%></label>
-  </br>
-  <img src="http://openweathermap.org/img/w/<%= @weather_data['weather'][0]['icon'] %>.png">
-  </br>
-  <label><%= @weather_data["weather"][0]["description"]%></label>
-  </br>
-  <label>Humidity : <%= @weather_data["main"]["humidity"] %>%</label>
-  </br>
-  <label>Wind Speed : <%= @weather_data["wind"]["speed"] %></label>
-
+  <%= react_component("Stadium", stadium: @stadium,image_path: asset_path(@stadium.image) , weather: @weather_data) %>
 
   <form id="comment_form" action="/create_comment" method="POST" data-remote=true>
     <input type="hidden" name="stadium_id" value="<%= @stadium.id %>">
