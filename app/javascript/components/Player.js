@@ -2,36 +2,32 @@ import React from "react"
 import PropTypes from "prop-types"
 class Player extends React.Component {
   render () {
-    const imgStyle = {height: "50px",width: "50px"}
-    const row = this.props.teams.map((data) =>
-      const stadium = this.props.stadiums[ Math.floor( Math.random() * (this.props.stadiums.length) )];
+    const row = this.props.players.map((data) =>
       <tr>
         <td key={data.name}>{data.name}</td>
-        <td key={data.shortName}>{data.shortName}</td>
-        <td>
-          <a href={"/stadiums?stadium_id="+ stadium.id}>{stadium.name}</a>
-        </td>
-        <td>
-          <img src={data.crestUrl} style={imgStyle} />
-        </td>
-        <td>
-          <a href={"/players?team_id="+ data.id}>Show Players</a>
-        </td>
+        <td key={data.position}>{data.position}</td>
+        <td key={data.jerseyNumber}>{data.jerseyNumber}</td>
+        <td key={data.dateOfBirth}>{data.dateOfBirth}</td>
+        <td key={data.nationality}>{data.nationality}</td>
+        <td key={data.contractUntil}>{data.contractUntil}</td>
+        <td key={data.marketValue}>{data.marketValue}</td>
       </tr>
       );
       return (
-      <table class="table">
-        <thead>
-          <th>Name</th>
-          <th>Short Name</th>
-          <th>Stadium</th>
-          <th>Logo</th>
-          <th>Players</th>
-        </thead>
-        <tbody>
-          {row}
-        </tbody>
-      </table>
+        <table class="table">
+          <thead>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Jersey Number</th>
+            <th>Date Of Birth</th>
+            <th>Nationality</th>
+            <th>Contract Until</th>
+            <th>Market Value</th>
+          </thead>
+          <tbody>
+            {row}
+          </tbody>
+        </table> 
       );
   }
 }
