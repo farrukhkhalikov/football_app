@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get "/stadiums" => 'home#stadiums', as: :stadiums
   post "/create_comment"=> 'home#create_comment', as: :create_comment
   get "/delete_comment"=> 'home#delete_comment', as: :delete_comment
+  post "/update_comment"=> 'home#update_comment', as: :update_comment
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
