@@ -22,10 +22,8 @@ class HomeController < ApplicationController
     @stadium = Stadium.find params[:stadium_id]
     query = "#{@stadium.state},#{@stadium.country}"
     api_key = "451864d3f1b8f323eb7e31b514e45831"
-    f = Faraday.new(url: "http://api.openweathermap.org/data/2.5/weather?q=#{query}&appid=#{api_key}")
-    @weather_data = JSON.parse(f.get.body)
-    # binding.pry
-
+    f = Faraday.new(url: "http://api.openweathermap.org/data/2.5/find?q=#{query}&units=imperial&appid=#{api_key}")
+    @weather_data = JSON.parse(f.get.body)["list"][0]
     @comments = @stadium.comments.order("created_at DESC")
   end
 
