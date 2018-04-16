@@ -11,8 +11,8 @@ class Team extends React.Component {
       var stadium = stadiums[Math.floor(Math.random()*stadiums.length)];
       row.push(
         <tr>
-          <td key={data.name}>{data.name}</td>
-          <td key={data.shortName}>{data.shortName}</td>
+          <td>{data.name}</td>
+          <td>{data.shortName}</td>
           <td>
             <a href={"/stadiums?stadium_id="+ stadium.id}>{stadium.name}</a>
           </td>
@@ -26,13 +26,15 @@ class Team extends React.Component {
       )
     }
       return (
-      <table class="table">
+      <table className="table">
         <thead>
-          <th>Name</th>
-          <th>Short Name</th>
-          <th>Stadium</th>
-          <th>Logo</th>
-          <th>Players</th>
+          <tr>
+            <th>Name</th>
+            <th>Short Name</th>
+            <th>Stadium</th>
+            <th>Logo</th>
+            <th>Players</th>
+          </tr>
         </thead>
         <tbody>
           {row}
